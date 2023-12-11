@@ -1,0 +1,53 @@
+@import '../../../../styles/const.scss';
+
+.container {
+  width: 100%;
+
+  .wrapper {
+    display: flex;
+    
+    .reverseWrapper {
+      display: flex;
+      gap: 20px;
+
+      .textWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: 500;
+        color: $Black;
+      }
+
+      .text {
+        color: $White;
+        font-size: 18px;
+      }
+    }
+
+    .elementWrapper {
+      display: flex;
+      gap: 20px;
+
+      .textWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: 500;
+        color: $Black;
+      }
+
+      .text {
+        color: $White;
+        font-size: 18px;
+      }
+    }
+  }
+}
