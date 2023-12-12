@@ -8,8 +8,6 @@ type TProps = {
 };
 
 const Tags: FC<TProps> = ({ img, text }) => {
-  console.log(img, text);
-
   return (
     <div className={m.container}>
       <div className={m.wrapper}>

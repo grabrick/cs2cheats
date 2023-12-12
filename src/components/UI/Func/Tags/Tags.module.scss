@@ -1,0 +1,27 @@
+@import '../../../../styles/const.scss';
+
+.container {
+  .wrapper {
+
+    .title {
+      color: $White;
+      font-size: 18px;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+
+      .tagsWrapper {
+        background-color: $White;
+        display: flex;
+        border-radius: 5px;
+
+        .tagsText {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

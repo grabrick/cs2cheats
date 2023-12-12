@@ -1,0 +1,26 @@
+@import '../../../../styles/const.scss';
+
+.container {
+  width: 100%;
+
+  .content {
+    display: flex;
+    gap: 30px;
+
+    .textWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .title {
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      .text {
+        color: $White;
+        font-size: 20px;
+      }
+    }
+  }
+}
