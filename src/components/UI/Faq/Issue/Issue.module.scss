@@ -1,0 +1,27 @@
+@import '../../../../styles/const.scss';
+
+.container {
+  width: 100%;
+  border-bottom: 2px solid black;
+
+  .previewWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+
+    .preview {
+      font-size: 25px;
+      font-weight: 500;
+      color: $White;
+    }
+  }
+
+  .text {
+    font-size: 20px;
+    color: $White;
+    padding: 10px 0;
+    border-top: 2px solid black;
+  }
+}

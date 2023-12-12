@@ -6,8 +6,6 @@ type TProps = {
 };
 
 const Tags: FC<TProps> = ({ section }) => {
-  console.log(section);
-
   return (
     <div className={m.container}>
       <div className={m.wrapper}>

@@ -1,0 +1,45 @@
+@import '../../../../styles/const.scss';
+
+.container {
+  width: 100%;
+  background-color: $DarkBlue2;
+  border-radius: 20px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 70px;
+    gap: 50px;
+
+    .textWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .days {
+        color: $White;
+        font-size: 26px;
+      }
+
+      .price {
+        color: $Gray;
+        font-size: 20px;
+      }
+    }
+
+    .paymentBtn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: $Blue;
+      padding: 10px 25px;
+      border-radius: 10px;
+      font-size: 20px;
+      color: $White;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

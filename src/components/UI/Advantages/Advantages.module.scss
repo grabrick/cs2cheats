@@ -3,13 +3,12 @@
 .container {
   background-image: url('../../../assets/images/AdvantagesBK.svg');
   width: 100%;
-  height: 621px;
 
   .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px;
+    padding: 50px;
 
     .title {
       color: $White;

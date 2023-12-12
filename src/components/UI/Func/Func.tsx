@@ -27,7 +27,7 @@ const Func = () => {
       ],
       sectionVISUAL: [
         {
-          id: 0,
+          id: 1,
           title: "Visual",
           tags: [
             "2Д боксы",
@@ -45,7 +45,7 @@ const Func = () => {
       ],
       sectionMISC: [
         {
-          id: 0,
+          id: 2,
           title: "Misc",
           tags: [
             "Список игроков которые наблюдают за вами",
