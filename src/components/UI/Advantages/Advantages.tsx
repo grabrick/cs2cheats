@@ -7,8 +7,13 @@ import Package from "@/assets/icons/Package.svg";
 import Tags from "./Tags/Tags";
 import Image from "next/image";
 import Logo from "@/assets/icons/LogoWhite.svg";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Advantages = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // чтобы анимация происходила только один раз
+  });
   const tagsData = [
     { id: 0, img: Info, text: "Строгий контроль нашей продукции" },
     { id: 1, img: Cog, text: "Мы следим за актуальностью нашей продукции" },
@@ -16,10 +21,22 @@ const Advantages = () => {
     { id: 3, img: Chip, text: "Поддержка всех видов OS" },
     { id: 4, img: Package, text: "Каждая продукция устанавливается без лишних проблем" },
   ];
+  const animationVariants = {
+    hidden: { opacity: 0, y: "-20%" },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <div className={m.container}>
-      <div className={m.wrapper}>
+      <motion.div 
+        ref={ref}
+        initial="hidden"
+        whileInView="visible"
+        // animate={inView ? "visible" : "hidden"}
+        variants={animationVariants}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={m.wrapper}
+      >
         <h1 className={m.title}>Наши преимущества</h1>
         <div className={m.tagsWrapper}>
           <div className={m.leftBar}>
@@ -39,7 +56,7 @@ const Advantages = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

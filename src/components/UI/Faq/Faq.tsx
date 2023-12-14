@@ -1,7 +1,16 @@
+import { useInView } from "react-intersection-observer";
 import m from "./Faq.module.scss";
 import Issue from "./Issue/Issue";
+import { motion } from "framer-motion";
 
 const Faq = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // чтобы анимация происходила только один раз
+  });
+  const animationVariants = {
+    hidden: { opacity: 0, y: "20%" },
+    visible: { opacity: 1, y: 0 },
+  };
   const data = [
     {
       id: 0,
@@ -28,12 +37,20 @@ const Faq = () => {
   ];
   return (
     <div className={m.container}>
-      <div className={m.wrapper}>
+      <motion.div 
+        ref={ref}
+        initial="hidden"
+        whileInView="visible"
+        animate={inView ? "visible" : "hidden"}
+        variants={animationVariants}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={m.wrapper}
+      >
         <h1 className={m.title}>Faq</h1>
         <div className={m.content}>
           {data.map(items => <Issue key={items.id} preview={items.preview} text={items.text} />)}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

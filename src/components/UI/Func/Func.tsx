@@ -5,8 +5,17 @@ import Tags from "./Tags/Tags";
 import GamePlayMoment from "./GamePlayMoment/GamePlayMoment";
 import Raskid from "@/assets/images/raskid.gif";
 import Visual from "@/assets/images/csinon.gif"
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const Func = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // чтобы анимация происходила только один раз
+  });
+  const animationVariants = {
+    hidden: { opacity: 0, x: "20%" },
+    visible: { opacity: 1, x: 0 },
+  };
   const data = [
     {
       sectionAIM: [
@@ -81,7 +90,15 @@ const Func = () => {
   ];
   return (
     <div className={m.container}>
-      <div className={m.wrapper}>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        whileInView="visible"
+        // animate={inView ? "visible" : "hidden"}
+        variants={animationVariants}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={m.wrapper}
+      >
         <div className={m.titleWrapper}>
           <h1 className={m.title}>Функционал нашей продукции</h1>
           <span className={m.subTitle}>Выбор за тобой</span>
@@ -124,7 +141,7 @@ const Func = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

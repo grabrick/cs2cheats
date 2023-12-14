@@ -1,6 +1,5 @@
 import Image from "next/image";
 import m from "./Video.module.scss";
-import VideoImg from "@/assets/images/Video.png";
 import Play from "@/assets/icons/Play.svg";
 import Package from "@/assets/icons/Package.svg";
 import MagicWand from "@/assets/icons/MagicWand.svg";
@@ -10,8 +9,17 @@ import VideoTags from "./VideoTags/VideoTags";
 import Logo from "@/assets/icons/LogoWhite.svg";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const Video = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // чтобы анимация происходила только один раз
+  });
+  const animationVariants = {
+    hidden: { opacity: 0, x: "-20%" },
+    visible: { opacity: 1, x: 0 },
+  };
   const data = [
     { id: 0, icons: Package, text: "Простая установка" },
     { id: 1, icons: MagicWand, text: "Гибкая настройка функционала" },
@@ -29,7 +37,15 @@ const Video = () => {
 
   return (
     <div className={m.container}>
-      <div className={m.wrapper}>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        whileInView="visible"
+        // animate={inView ? "visible" : "hidden"}
+        variants={animationVariants}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={m.wrapper}
+      >
         <div className={m.videoContainer}>
           <div className={m.image}>
             {hasWindow && (
@@ -90,7 +106,7 @@ const Video = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
