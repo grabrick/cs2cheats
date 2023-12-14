@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className={m.container}>
       <div className={m.wrapper}>
-        <Image src={Man} alt='' />
+        <Image className={m.img} src={Man} alt='' />
         <div className={m.textWraper}>
           <h1 className={m.title}>CS2Cheats</h1>
           <p className={m.text}>Цифровой магазин высококачественных читов для игр Наверняка вы хотите быть победителем и никогда не проигрывать?</p>

@@ -2,17 +2,31 @@
 
 .container {
   width: 100%;
-  padding: 100px 0;
+  padding: 100px 10px;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    padding: 100px 0;
+  }
 
   .wrapper {
     max-width: 1150px;
     background-color: $Orange;
     // height: 1000px;
-    margin: 0 auto;
+    // margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px;
+
+    @media screen and (max-width: 860px) {
+      padding: 10px;
+    }
+
+    @media screen and (max-width: 425px) {
+      padding: 10px 0;
+    }
 
     .titleWrapper {
       display: flex;
@@ -21,7 +35,12 @@
 
       .title {
         font-size: 50px;
+        text-align: center;
         color: $Black;
+
+        @media screen and (max-width: 860px) {
+          font-size: 30px;
+        }
       }
 
       .subTitle {
@@ -38,9 +57,28 @@
         display: flex;
         gap: 30px;
 
+        @media screen and (max-width: 645px) {
+          flex-direction: column;
+        }
+
+        @media screen and (max-width: 425px) {
+          flex-direction: column;
+          align-items: center;
+        }
+
         .image {
           width: 600px;
           height: 352px;
+
+          @media screen and (max-width: 860px) {
+            width: 450px;
+            height: 252px;
+          }
+
+          @media screen and (max-width: 500px) {
+            width: 350px;
+            height: 252px;
+          }
         }
 
         .textWrapper {

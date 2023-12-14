@@ -6,6 +6,36 @@
     padding: 110px 318px 0 318px;
     display: flex;
     gap: 184px;
+    
+    @media screen and (max-width: 1644px) {
+      padding: 110px 200px 0 200px;
+    }
+
+    @media screen and (max-width: 1112px) {
+      padding: 110px 100px 0 100px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      padding: 110px 50px 0 50px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      gap: 80px;
+    }
+
+    .img {
+      width: 400px;
+      height: 567px;
+
+      @media screen and (max-width: 1644px) {
+        width: 300px;
+        height: 467px;
+      }
+
+      @media screen and (max-width: 750px) {
+        display: none;
+      }
+    }
 
     .textWraper {
       display: flex;
@@ -14,6 +44,14 @@
 
       .title {
         font-size: 70px;
+
+        @media screen and (max-width: 1644px) {
+          font-size: 50px;
+        }
+
+        @media screen and (max-width: 610px) {
+          font-size: 30px;
+        }
       }
 
       .text {

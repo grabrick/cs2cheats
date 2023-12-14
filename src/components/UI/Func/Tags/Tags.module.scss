@@ -1,6 +1,8 @@
 @import '../../../../styles/const.scss';
 
 .container {
+  width: 100%;
+  
   .wrapper {
 
     .title {
@@ -13,13 +15,22 @@
       gap: 10px;
       margin-top: 20px;
 
-      .tagsWrapper {
-        background-color: $White;
-        display: flex;
-        border-radius: 5px;
+      @media screen and (max-width: 375px) {
+        padding-left: 10px;
+      }
 
+      .tagsWrapper {     
+        display: flex;
+        
         .tagsText {
+          background-color: $White;
+          border-radius: 5px;
           padding: 10px;
+
+          @media screen and (max-width: 375px) {
+            padding: 5px;
+            font-size: 14px;
+          }
         }
       }
     }

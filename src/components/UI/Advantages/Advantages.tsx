@@ -28,7 +28,7 @@ const Advantages = () => {
             ))}
           </div>
           <div className={m.center}>
-            <Image src={Logo} alt="" />
+            <Image className={m.img} src={Logo} alt="" />
             {tagsData.slice(2, 3).map((items) => (
               <Tags key={items.id} img={items.img} text={items.text} />
             ))}

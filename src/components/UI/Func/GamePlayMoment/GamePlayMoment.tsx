@@ -13,12 +13,12 @@ const GamePlayMoment: FC<TProps> = ({ img, title, text, reverse }) => {
   return (
     <div className={m.container}>
       {reverse === true ? (
-        <div className={m.content}>
+        <div className={m.ReversContent}>
           <div className={m.textWrapper}>
             <h1 className={m.title}>{title}</h1>
             <p className={m.text}>{text}</p>
           </div>
-          <Image width={450} height={300} src={img} alt="" />
+          <Image className={m.img} width={450} height={300} src={img} alt="" />
         </div>
       ) : (
         <div className={m.content}>

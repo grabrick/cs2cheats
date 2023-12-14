@@ -19,11 +19,11 @@ const Card: FC<TProps> = ({ img, title, text, reverse }) => {
               <h1 className={m.title}>{title}</h1>
               <p className={m.text}>{text}</p>
             </div>
-            <Image src={img} alt="" />
+            <Image className={m.img} src={img} alt="" />
           </div>
         ) : (
           <div className={m.elementWrapper}>
-            <Image src={img} alt="" />
+            <Image className={m.img} src={img} alt="" />
             <div className={m.textWrapper}>
               <h1 className={m.title}>{title}</h1>
               <p className={m.text}>{text}</p>
