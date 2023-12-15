@@ -28,6 +28,10 @@
       @media screen and (max-width: 450px) {
         text-align: start;
       }
+
+      @media screen and (max-width: 375px) {
+        font-size: 18px;
+      }
     }
 
     .iconsWrapper {

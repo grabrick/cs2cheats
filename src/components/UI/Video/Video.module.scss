@@ -223,6 +223,11 @@
           font-size: 20px;
           color: $Gray;
 
+          @media screen and (max-width: 606px) {
+            text-align: center;
+            font-size: 16px;
+          }
+
           @media screen and (max-width: 450px) {
             font-size: 16px;
           }

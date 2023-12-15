@@ -49,6 +49,12 @@
         padding-top: 20px;
       }
 
+      @media screen and (max-width: 1090px) {
+        justify-content: center;
+        padding-top: 20px;
+        margin: 0;
+      }
+
       @media screen and (max-width: 1024px) {
         flex-wrap: wrap;
       }

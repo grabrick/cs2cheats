@@ -11,14 +11,15 @@ import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { Element } from "react-scroll";
 
 const Video = () => {
   const [ref, inView] = useInView({
-    triggerOnce: false, // чтобы анимация происходила только один раз
+    triggerOnce: true, // чтобы анимация происходила только один раз
   });
   const animationVariants = {
-    hidden: { opacity: 0, x: "-20%" },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, y: "-20%" },
+    visible: { opacity: 1, y: 0 },
   };
   const data = [
     { id: 0, icons: Package, text: "Простая установка" },
@@ -36,12 +37,13 @@ const Video = () => {
   }, []);
 
   return (
-    <div className={m.container}>
+    <Element name="Video">
+      <div className={m.container}>
       <motion.div
         ref={ref}
         initial="hidden"
         whileInView="visible"
-        // animate={inView ? "visible" : "hidden"}
+        animate={inView ? "visible" : "hidden"}
         variants={animationVariants}
         transition={{ duration: 1, delay: 0.5 }}
         className={m.wrapper}
@@ -108,6 +110,7 @@ const Video = () => {
         </div>
       </motion.div>
     </div>
+    </Element>
   );
 };
 

@@ -1,0 +1,63 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .30);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 0;
+  pointer-events: none;
+  transition: .4s;
+  z-index: 4;
+}
+
+.containerActive {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .30);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  opacity: 1;
+  pointer-events: all;
+  transition: .4s;
+  z-index: 3;
+
+  @media screen and (max-width: 320px) {
+    width: 120vw;
+    height: 120vh;
+  }
+}
+
+.wrapper {
+  background-color: white;
+  border-left: 2px solid black;
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (max-width: 647px) {
+    width: 50%;
+  }
+
+  .buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

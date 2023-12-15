@@ -3,14 +3,15 @@ import Card from "./Card/Card";
 import m from "./Screens.module.scss";
 import Img from "@/assets/images/Img.png";
 import { motion } from "framer-motion";
+import { Element } from "react-scroll";
 
 const Screens = () => {
   const [ref, inView] = useInView({
-    triggerOnce: false, // чтобы анимация происходила только один раз
+    triggerOnce: true, // чтобы анимация происходила только один раз
   });
   const animationVariants = {
-    hidden: { opacity: 0, x: "20%" },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, y: "20%" },
+    visible: { opacity: 1, y: 0 },
   };
   const data = [
     {
@@ -37,37 +38,39 @@ const Screens = () => {
   ];
 
   return (
-    <div className={m.container}>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        // animate={inView ? "visible" : "hidden"}
-        variants={animationVariants}
-        transition={{ duration: 1, delay: 0.5 }}
-        className={m.wrapper}
-      >
-        <div className={m.titleWrapper}>
-          <h1 className={m.title}>РЕВОЛЮЦИОННОЕ ИЗМЕНЕНИЕ</h1>
-          <h4 className={m.subTitle}>
-            {`Для дымовых гранат теперь используются динамические объёмные
+    <Element name="Screens">
+      <div className={m.container}>
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          whileInView="visible"
+          animate={inView ? "visible" : "hidden"}
+          variants={animationVariants}
+          transition={{ duration: 1, delay: 0.5 }}
+          className={m.wrapper}
+        >
+          <div className={m.titleWrapper}>
+            <h1 className={m.title}>РЕВОЛЮЦИОННОЕ ИЗМЕНЕНИЕ</h1>
+            <h4 className={m.subTitle}>
+              {`Для дымовых гранат теперь используются динамические объёмные
             частицы, которые взаимодействуют с окружением и реагируют на свет,
             выстрелы и взрывы.`}
-          </h4>
-        </div>
-        <div className={m.cardWrapper}>
-          {data.map((items) => (
-            <Card
-              key={items.id}
-              img={items.img}
-              title={items.title}
-              text={items.text}
-              reverse={items.reverse}
-            />
-          ))}
-        </div>
-      </motion.div>
-    </div>
+            </h4>
+          </div>
+          <div className={m.cardWrapper}>
+            {data.map((items) => (
+              <Card
+                key={items.id}
+                img={items.img}
+                title={items.title}
+                text={items.text}
+                reverse={items.reverse}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </Element>
   );
 };
 

@@ -4,17 +4,18 @@ import m from "./Func.module.scss";
 import Tags from "./Tags/Tags";
 import GamePlayMoment from "./GamePlayMoment/GamePlayMoment";
 import Raskid from "@/assets/images/raskid.gif";
-import Visual from "@/assets/images/csinon.gif"
+import Visual from "@/assets/images/csinon.gif";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { Element } from "react-scroll";
 
 const Func = () => {
   const [ref, inView] = useInView({
-    triggerOnce: false, // чтобы анимация происходила только один раз
+    triggerOnce: true, // чтобы анимация происходила только один раз
   });
   const animationVariants = {
-    hidden: { opacity: 0, x: "20%" },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, y: "20%" },
+    visible: { opacity: 1, y: 0 },
   };
   const data = [
     {
@@ -89,60 +90,62 @@ const Func = () => {
     },
   ];
   return (
-    <div className={m.container}>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        // animate={inView ? "visible" : "hidden"}
-        variants={animationVariants}
-        transition={{ duration: 1, delay: 0.5 }}
-        className={m.wrapper}
-      >
-        <div className={m.titleWrapper}>
-          <h1 className={m.title}>Функционал нашей продукции</h1>
-          <span className={m.subTitle}>Выбор за тобой</span>
-        </div>
-        <div className={m.content}>
-          <div className={m.cheatImgWrapper}>
-            <Image className={m.image} src={PreviewImg} alt="" />
-            <div className={m.textWrapper}>
-              <div className={m.section}>
-                <p className={m.clases}>Статус - undetect</p>
-              </div>
-              <div className={m.section}>
-                <p className={m.clases}>Тип - Мультихак</p>
-              </div>
-              <div className={m.section}>
-                <p className={m.clases}>OS - Windows 10-11 от 2004 и выше</p>
+    <Element name="Func">
+      <div className={m.container}>
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          whileInView="visible"
+          animate={inView ? "visible" : "hidden"}
+          variants={animationVariants}
+          transition={{ duration: 1, delay: 0.5 }}
+          className={m.wrapper}
+        >
+          <div className={m.titleWrapper}>
+            <h1 className={m.title}>Функционал нашей продукции</h1>
+            <span className={m.subTitle}>Выбор за тобой</span>
+          </div>
+          <div className={m.content}>
+            <div className={m.cheatImgWrapper}>
+              <Image className={m.image} src={PreviewImg} alt="" />
+              <div className={m.textWrapper}>
+                <div className={m.section}>
+                  <p className={m.clases}>Статус - undetect</p>
+                </div>
+                <div className={m.section}>
+                  <p className={m.clases}>Тип - Мультихак</p>
+                </div>
+                <div className={m.section}>
+                  <p className={m.clases}>OS - Windows 10-11 от 2004 и выше</p>
+                </div>
               </div>
             </div>
+            <div className={m.tagsWrapper}>
+              {data.map((items, i) => (
+                <Tags key={i} section={items.sectionAIM} />
+              ))}
+              {data.map((items, i) => (
+                <Tags key={i} section={items.sectionMISC} />
+              ))}
+              {data.map((items, i) => (
+                <Tags key={i} section={items.sectionVISUAL} />
+              ))}
+            </div>
+            <div className={m.gamePlayWrapper}>
+              {playData.map((items) => (
+                <GamePlayMoment
+                  key={items.id}
+                  img={items.img}
+                  title={items.title}
+                  text={items.text}
+                  reverse={items.reverse}
+                />
+              ))}
+            </div>
           </div>
-          <div className={m.tagsWrapper}>
-            {data.map((items, i) => (
-              <Tags key={i} section={items.sectionAIM} />
-            ))}
-            {data.map((items, i) => (
-              <Tags key={i} section={items.sectionMISC} />
-            ))}
-            {data.map((items, i) => (
-              <Tags key={i} section={items.sectionVISUAL} />
-            ))}
-          </div>
-          <div className={m.gamePlayWrapper}>
-            {playData.map((items) => (
-              <GamePlayMoment
-                key={items.id}
-                img={items.img}
-                title={items.title}
-                text={items.text}
-                reverse={items.reverse}
-              />
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
+    </Element>
   );
 };
 
