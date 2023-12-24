@@ -6,6 +6,7 @@ import Main from "@/components/UI/Main/Main";
 import Screens from "@/components/UI/Screens/Screens";
 import Tariffs from "@/components/UI/Tariffs/Tariffs";
 import Video from "@/components/UI/Video/Video";
+import { GetServerSideProps } from "next";
 import Head from 'next/head'
 
 export default function Home() {
@@ -25,4 +26,12 @@ export default function Home() {
       </Layout>
     </>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {
+
+    }
+  }
 }

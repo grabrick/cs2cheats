@@ -3,7 +3,10 @@ import m from "./Card.module.scss";
 import Image, { StaticImageData } from "next/image";
 
 type TProps = {
-  img: StaticImageData;
+  img: {
+    url: StaticImageData | any;
+    isVideo: boolean;
+  };
   title: string;
   text: string;
   reverse: boolean;
@@ -19,11 +22,23 @@ const Card: FC<TProps> = ({ img, title, text, reverse }) => {
               <h1 className={m.title}>{title}</h1>
               <p className={m.text}>{text}</p>
             </div>
-            <Image className={m.img} src={img} alt="" />
+            {img.isVideo === true ? (
+              <video className={m.video} autoPlay loop>
+                <source src={img.url} />
+              </video>
+            ) : (
+              <Image className={m.img} src={img.url} alt="" />
+            )}
           </div>
         ) : (
           <div className={m.elementWrapper}>
-            <Image className={m.img} src={img} alt="" />
+            {img.isVideo === true ? (
+              <video className={m.video} autoPlay loop>
+                <source src={img.url} />
+              </video>
+            ) : (
+              <Image className={m.img} src={img.url} alt="" />
+            )}
             <div className={m.textWrapper}>
               <h1 className={m.title}>{title}</h1>
               <p className={m.text}>{text}</p>

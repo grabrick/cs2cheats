@@ -13,9 +13,9 @@ const Tariffs = () => {
     visible: { opacity: 1, y: 0 },
   };
   const data = [
-    { id: 0, day: 1, price: 50 },
-    { id: 1, day: 7, price: 150 },
-    { id: 2, day: 30, price: 300 },
+    { id: 0, day: 1, price: 50, url: 'https://oplata.info/info/' },
+    { id: 1, day: 7, price: 150, url: 'https://oplata.info/info/' },
+    { id: 2, day: 30, price: 300, url: 'https://oplata.info/info/' },
   ];
   return (
     <Element name="Tariffs">
@@ -32,7 +32,7 @@ const Tariffs = () => {
           <h1 className={m.title}>Тарифный план</h1>
           <div className={m.content}>
             {data.map((items) => (
-              <TariffsCard key={items.id} day={items.day} price={items.price} />
+              <TariffsCard key={items.id} day={items.day} price={items.price} url={items.url} />
             ))}
           </div>
         </motion.div>

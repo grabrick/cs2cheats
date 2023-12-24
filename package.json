@@ -25,6 +25,8 @@
     "@types/react-scroll": "^1.8.10",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "typescript": "^5"
+    "file-loader": "^6.2.0",
+    "typescript": "^5",
+    "url-loader": "^4.1.1"
   }
 }

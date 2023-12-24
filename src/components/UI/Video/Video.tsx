@@ -39,77 +39,77 @@ const Video = () => {
   return (
     <Element name="Video">
       <div className={m.container}>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        animate={inView ? "visible" : "hidden"}
-        variants={animationVariants}
-        transition={{ duration: 1, delay: 0.5 }}
-        className={m.wrapper}
-      >
-        <div className={m.videoContainer}>
-          <div className={m.image}>
-            {hasWindow && (
-              <VideoPlayer
-                videoUrl={Url}
-                isActive={isActive}
-                setIsActive={setIsActive}
-              />
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          whileInView="visible"
+          animate={inView ? "visible" : "hidden"}
+          variants={animationVariants}
+          transition={{ duration: 1, delay: 0.5 }}
+          className={m.wrapper}
+        >
+          <div className={m.videoContainer}>
+            <div className={m.image}>
+              {hasWindow && (
+                <VideoPlayer
+                  videoUrl={Url}
+                  isActive={isActive}
+                  setIsActive={setIsActive}
+                />
+              )}
+            </div>
+
+            {isActive === false && (
+              <div className={m.overlay} onClick={() => setIsActive(true)}>
+                <div className={m.gameOverlay}>
+                  <h2 className={m.title}>COUNTER - STRIKE 2</h2>
+                  <div className={m.subTitleWrapper}>
+                    <p className={m.subTitle}>Игра за пределами понимания</p>
+                  </div>
+                </div>
+                <div className={m.playButtonWrapper}>
+                  <div className={m.icons}>
+                    <Image className={m.img} src={Play} alt="" />
+                  </div>
+                  <h2 className={m.buttonText}>Воспроизвести</h2>
+                </div>
+              </div>
             )}
           </div>
 
-          {isActive === false && (
-            <div className={m.overlay} onClick={() => setIsActive(true)}>
-              <div className={m.gameOverlay}>
-                <h2 className={m.title}>COUNTER - STRIKE 2</h2>
-                <div className={m.subTitleWrapper}>
-                  <p className={m.subTitle}>Игра за пределами понимания</p>
-                </div>
+          <div className={m.videoTextWrapper}>
+            <div className={m.textWrapper}>
+              <h1 className={m.videoTitle}>CS2Cheats</h1>
+              <h4 className={m.videoText}>
+                Наша продукция не даст вам заскучать во время игры
+              </h4>
+            </div>
+            <div className={m.tags}>
+              <div className={m.leftBar}>
+                {data.slice(0, 2).map((items) => (
+                  <VideoTags
+                    key={items.id}
+                    icons={items.icons}
+                    text={items.text}
+                  />
+                ))}
               </div>
-              <div className={m.playButtonWrapper}>
-                <div className={m.icons}>
-                  <Image className={m.img} src={Play} alt="" />
-                </div>
-                <h2 className={m.buttonText}>Воспроизвести</h2>
+              <div className={m.center}>
+                <Image src={Logo} alt="" />
               </div>
-            </div>
-          )}
-        </div>
-
-        <div className={m.videoTextWrapper}>
-          <div className={m.textWrapper}>
-            <h1 className={m.videoTitle}>CS2Cheats</h1>
-            <h4 className={m.videoText}>
-              Наша продукция не даст вам заскучать во время игры
-            </h4>
-          </div>
-          <div className={m.tags}>
-            <div className={m.leftBar}>
-              {data.slice(0, 2).map((items) => (
-                <VideoTags
-                  key={items.id}
-                  icons={items.icons}
-                  text={items.text}
-                />
-              ))}
-            </div>
-            <div className={m.center}>
-              <Image src={Logo} alt="" />
-            </div>
-            <div className={m.rightBar}>
-              {data.slice(2, 4).map((items) => (
-                <VideoTags
-                  key={items.id}
-                  icons={items.icons}
-                  text={items.text}
-                />
-              ))}
+              <div className={m.rightBar}>
+                {data.slice(2, 4).map((items) => (
+                  <VideoTags
+                    key={items.id}
+                    icons={items.icons}
+                    text={items.text}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
     </Element>
   );
 };

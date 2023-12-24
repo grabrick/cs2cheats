@@ -4,6 +4,7 @@ import m from "./Screens.module.scss";
 import Img from "@/assets/images/Img.png";
 import { motion } from "framer-motion";
 import { Element } from "react-scroll";
+import Video from "@/assets/video/vid.webm"
 
 const Screens = () => {
   const [ref, inView] = useInView({
@@ -16,21 +17,30 @@ const Screens = () => {
   const data = [
     {
       id: 0,
-      img: Img,
+      img: {
+        url: Video,
+        isVideo: true
+      },
       title: "Игровой процесс",
       text: "Новый эффект дыма взаимодействует с другими элементами игры, открывая простор для новых тактик. Пули и гранаты разгоняют дым, расширяя завесу или ненадолго рассеивая её.",
       reverse: false,
     },
     {
       id: 1,
-      img: Img,
+      img: {
+        url: Img,
+        isVideo: false
+      },
       title: "Реакция на освещение",
       text: "Частицы дыма в Counter-Strike 2 работают с единой системой освещения, из-за чего реалистичнее влияют на свет и цвет.",
       reverse: true,
     },
     {
       id: 2,
-      img: Img,
+      img: {
+        url: Img,
+        isVideo: false
+      },
       title: "Естественное заполнение пространства",
       text: "Теперь дым будет расходиться через открытые двери и выбитые окна, спускаться и подниматься по лестницам, тянуться по коридорам и смешиваться с дымом от других гранат.",
       reverse: false,

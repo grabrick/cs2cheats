@@ -1,11 +1,17 @@
+@import "../../../styles/const.scss";
+
 .container {
   width: 100%;
   max-width: 1920px;
 
   .wrapper {
-    padding: 110px 318px 0 318px;
+    // padding: 110px 318px 0 318px;
+    // display: flex;
+    // gap: 154px;
+
+    padding: 110px 218px 0 218px;
     display: flex;
-    gap: 184px;
+    gap: 120px;
     
     @media screen and (max-width: 1644px) {
       padding: 110px 200px 0 200px;
@@ -41,6 +47,12 @@
       display: flex;
       gap: 10px;
       flex-direction: column;
+      
+
+      .textWrappWrapper {
+        background-color: $Gray;
+        padding: 20px;
+      }
 
       .title {
         font-size: 70px;

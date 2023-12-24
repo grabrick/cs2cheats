@@ -13,14 +13,14 @@ const Footer = () => {
         </div>
         <div className={m.copyright}>
           <h3 className={m.copyrightText}>
-            © 2023 CS2Cheats Все права защищены.
+            ©2023 CS2Cheats Все права защищены.
           </h3>
         </div>
         <div className={m.contacts}>
-          <Link href={"#"} className={m.link}>
+          <Link href={"#"} className={m.link} target="_blank">
             Telegram
           </Link>
-          <Link href={"#"} className={m.link}>
+          <Link href={"#"} className={m.link} target="_blank">
             Discord
           </Link>
         </div>

@@ -15,6 +15,7 @@ const Advantages = () => {
   const [ref, inView] = useInView({
     triggerOnce: true, // чтобы анимация происходила только один раз
   });
+  
   const tagsData = [
     { id: 0, img: Info, text: "Строгий контроль нашей продукции" },
     { id: 1, img: Cog, text: "Мы следим за актуальностью нашей продукции" },
@@ -46,18 +47,18 @@ const Advantages = () => {
           <h1 className={m.title}>Наши преимущества</h1>
           <div className={m.tagsWrapper}>
             <div className={m.leftBar}>
-              {tagsData.slice(0, 2).map((items) => (
+              {tagsData.slice(0, 2).map((items: any) => (
                 <Tags key={items.id} img={items.img} text={items.text} />
               ))}
             </div>
             <div className={m.center}>
               <Image className={m.img} src={Logo} alt="" />
-              {tagsData.slice(2, 3).map((items) => (
+              {tagsData.slice(2, 3).map((items: any) => (
                 <Tags key={items.id} img={items.img} text={items.text} />
               ))}
             </div>
             <div className={m.rightBar}>
-              {tagsData.slice(3, 5).map((items) => (
+              {tagsData.slice(3, 5).map((items: any) => (
                 <Tags key={items.id} img={items.img} text={items.text} />
               ))}
             </div>
